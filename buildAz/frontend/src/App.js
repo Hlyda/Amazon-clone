@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter , Route} from 'react-router-dom';
 import ProductScreen from './screens/ProductScreen';
 import HomeScreen from './screens/HomeScreen';
 
@@ -10,7 +10,7 @@ function App() {
         <header className="row">
           <div>
             <a className="brand" href="/">
-              amazona
+              BuildAz
             </a>
           </div>
           <div>
