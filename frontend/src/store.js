@@ -2,7 +2,7 @@ import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { cartReducer } from './reducers/cartReducers';
 import { orderCreateReducer, orderDetailsReducer, orderMineListReducer } from './reducers/orderReducers';
-import { productDetailsReducer, productListReducer } from './reducers/productReducers';
+import { productCreateReducer, productDeleteReducer, productDetailsReducer, productListReducer, productUpdateReducer } from './reducers/productReducers';
 import {
   userDetailsReducer,
   userRegisterReducer,
@@ -36,6 +36,9 @@ const reducer = combineReducers({
   orderDetails: orderDetailsReducer,
   orderMineList: orderMineListReducer,
   userDetails: userDetailsReducer,
+  productCreate: productCreateReducer,
+  productUpdate: productUpdateReducer,
+  productDelete: productDeleteReducer,
 
 });
 //adding redux to chrome
