@@ -11,8 +11,9 @@ productRouter.get(
   '/',
   expressAsyncHandler(async (req, res) => { //express.Router() : fct: makes our code moduler, instead of having all routers in server.js ..We can define multiple files to have our routers
 
-    const products = await Product.find({});
-    res.send(products);
+    const seller = req.query.seller || '';
+    const sellerFilter = seller ? { seller } : {};
+    const products = await Product.find({ ...sellerFilter });    res.send(products);
   })
 );
 
@@ -41,7 +42,7 @@ productRouter.get(
 productRouter.post(
   '/',
   isAuth,
-  isAdmin,
+  isSellerOrAdmin,
   expressAsyncHandler(async (req, res) => {
     const product = new Product({
       name: 'sample name ' + Date.now(),
@@ -62,7 +63,7 @@ productRouter.post(
 productRouter.put(
   '/:id',
   isAuth,
-  isAdmin,
+  isSellerOrAdmin,
   expressAsyncHandler(async (req, res) => {
     const productId = req.params.id;
     const product = await Product.findById(productId);
